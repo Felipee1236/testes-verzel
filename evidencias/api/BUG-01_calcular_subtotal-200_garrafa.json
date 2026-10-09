@@ -1,0 +1,36 @@
+{
+  "executadoEm": "2026-10-09T21:35:27.296Z",
+  "requisicao": {
+    "metodo": "POST",
+    "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+    "corpo": {
+      "itens": [
+        {
+          "produtoId": "P008",
+          "quantidade": 4
+        }
+      ]
+    }
+  },
+  "resposta": {
+    "status": 200,
+    "corpo": {
+      "itens": [
+        {
+          "produtoId": "P008",
+          "nome": "Garrafa Térmica 750ml",
+          "precoUnitario": 50,
+          "quantidade": 4,
+          "total": 200
+        }
+      ],
+      "subtotal": 200,
+      "desconto": 0,
+      "frete": 19.9,
+      "freteGratis": false,
+      "valorFaltanteFreteGratis": 0,
+      "total": 219.9,
+      "cupom": null
+    }
+  }
+}

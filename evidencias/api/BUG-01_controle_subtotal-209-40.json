@@ -1,0 +1,47 @@
+{
+  "executadoEm": "2026-10-09T21:35:27.402Z",
+  "requisicao": {
+    "metodo": "POST",
+    "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+    "corpo": {
+      "itens": [
+        {
+          "produtoId": "P001",
+          "quantidade": 1
+        },
+        {
+          "produtoId": "P006",
+          "quantidade": 5
+        }
+      ]
+    }
+  },
+  "resposta": {
+    "status": 200,
+    "corpo": {
+      "itens": [
+        {
+          "produtoId": "P001",
+          "nome": "Camiseta Essencial",
+          "precoUnitario": 59.9,
+          "quantidade": 1,
+          "total": 59.9
+        },
+        {
+          "produtoId": "P006",
+          "nome": "Kit 3 Pares de Meias",
+          "precoUnitario": 29.9,
+          "quantidade": 5,
+          "total": 149.5
+        }
+      ],
+      "subtotal": 209.4,
+      "desconto": 0,
+      "frete": 0,
+      "freteGratis": true,
+      "valorFaltanteFreteGratis": 0,
+      "total": 209.4,
+      "cupom": null
+    }
+  }
+}
