@@ -16,6 +16,8 @@ Validação da entrega **VZS-142: cupom de desconto e frete grátis** (versão 2
 | Documento com as evidências da execução | [`evidencias/`](evidencias/), ligadas linha a linha no relatório de execução e nos bugs |
 | Automação de pelo menos 3 cenários com Playwright | [`tests/`](tests/) (6 cenários, 12 testes). Como rodar: [seção abaixo](#como-rodar-a-automação) |
 
+Como usei IA neste teste e o que foi feito por mim: [`USO-DE-IA.md`](USO-DE-IA.md).
+
 ## Resumo dos resultados
 
 - **18 cenários e 32 execuções manuais**, cobrindo os 11 critérios de aceite: **29 passaram e 3 falharam**.
@@ -113,6 +115,7 @@ tests/
 ```
 .
 ├── README.md
+├── USO-DE-IA.md               ← como a IA foi usada neste teste
 ├── cenarios/                  ← cenários em Gherkin (pt-BR) e índice
 ├── execucao/                  ← resultado de cada execução e testes exploratórios
 ├── bugs/                      ← reports de bug e observações
