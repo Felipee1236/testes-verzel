@@ -1,0 +1,121 @@
+[
+  {
+    "ct": "CT17",
+    "linha": "a",
+    "descricao": "lista de itens vazia",
+    "esperado": "422 ITENS_OBRIGATORIOS",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.184Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": []
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "ITENS_OBRIGATORIOS",
+          "mensagem": "Informe ao menos um item.",
+          "campo": "itens"
+        }
+      }
+    }
+  },
+  {
+    "ct": "CT17",
+    "linha": "b",
+    "descricao": "produto inexistente P999",
+    "esperado": "422 PRODUTO_NAO_ENCONTRADO",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.226Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P999",
+            "quantidade": 1
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "PRODUTO_NAO_ENCONTRADO",
+          "mensagem": "Produto P999 não encontrado.",
+          "campo": "itens[0].produtoId"
+        }
+      }
+    }
+  },
+  {
+    "ct": "CT17",
+    "linha": "c",
+    "descricao": "produto duplicado",
+    "esperado": "422 ITEM_DUPLICADO",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.266Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P001",
+            "quantidade": 1
+          },
+          {
+            "produtoId": "P001",
+            "quantidade": 1
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "ITEM_DUPLICADO",
+          "mensagem": "O produto P001 aparece mais de uma vez.",
+          "campo": "itens[1].produtoId"
+        }
+      }
+    }
+  },
+  {
+    "ct": "CT17",
+    "linha": "d",
+    "descricao": "quantidade 0",
+    "esperado": "422 QUANTIDADE_INVALIDA",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.296Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P001",
+            "quantidade": 0
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "QUANTIDADE_INVALIDA",
+          "mensagem": "A quantidade deve ser um número inteiro maior ou igual a 1.",
+          "campo": "itens[0].quantidade"
+        }
+      }
+    }
+  }
+]

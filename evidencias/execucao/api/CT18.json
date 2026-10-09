@@ -1,0 +1,50 @@
+[
+  {
+    "ct": "CT18",
+    "linha": "-",
+    "descricao": "cliente com nome \"\", e-mail \"x\", CEP \"1\"",
+    "esperado": "422 DADOS_INVALIDOS com cliente.nome, cliente.email e cliente.cep",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.330Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+      "corpo": {
+        "cliente": {
+          "nome": "",
+          "email": "x",
+          "cep": "1"
+        },
+        "itens": [
+          {
+            "produtoId": "P005",
+            "quantidade": 1
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "DADOS_INVALIDOS",
+          "mensagem": "Existem campos inválidos no pedido.",
+          "campos": [
+            {
+              "campo": "cliente.nome",
+              "mensagem": "Informe o nome completo."
+            },
+            {
+              "campo": "cliente.email",
+              "mensagem": "Informe um e-mail válido."
+            },
+            {
+              "campo": "cliente.cep",
+              "mensagem": "Informe um CEP com 8 dígitos."
+            }
+          ]
+        }
+      }
+    }
+  }
+]

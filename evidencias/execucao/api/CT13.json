@@ -1,0 +1,105 @@
+[
+  {
+    "ct": "CT13",
+    "linha": "a",
+    "descricao": "P006 x3 + BEMVINDO10",
+    "esperado": "200; subtotal 89.7, desconto 8.97, frete 19.9, total 100.63; 2 casas",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:38.964Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P006",
+            "quantidade": 3
+          }
+        ],
+        "cupom": "BEMVINDO10"
+      }
+    },
+    "resposta": {
+      "status": 200,
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P006",
+            "nome": "Kit 3 Pares de Meias",
+            "precoUnitario": 29.9,
+            "quantidade": 3,
+            "total": 89.7
+          }
+        ],
+        "subtotal": 89.7,
+        "desconto": 8.97,
+        "frete": 19.9,
+        "freteGratis": false,
+        "valorFaltanteFreteGratis": 110.3,
+        "total": 100.63,
+        "cupom": {
+          "codigo": "BEMVINDO10",
+          "aplicado": true,
+          "mensagem": "Cupom aplicado: 10% de desconto nos produtos."
+        }
+      }
+    }
+  },
+  {
+    "ct": "CT13",
+    "linha": "b",
+    "descricao": "P007 x3 + P003 x1 + BEMVINDO10",
+    "esperado": "200; subtotal 879.6, desconto 87.96, frete 0, total 791.64; 2 casas",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:38.992Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P007",
+            "quantidade": 3
+          },
+          {
+            "produtoId": "P003",
+            "quantidade": 1
+          }
+        ],
+        "cupom": "BEMVINDO10"
+      }
+    },
+    "resposta": {
+      "status": 200,
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P007",
+            "nome": "Jaqueta Corta-Vento",
+            "precoUnitario": 229.9,
+            "quantidade": 3,
+            "total": 689.7
+          },
+          {
+            "produtoId": "P003",
+            "nome": "Tênis Casual Urbano",
+            "precoUnitario": 189.9,
+            "quantidade": 1,
+            "total": 189.9
+          }
+        ],
+        "subtotal": 879.6,
+        "desconto": 87.96,
+        "frete": 0,
+        "freteGratis": true,
+        "valorFaltanteFreteGratis": 0,
+        "total": 791.64,
+        "cupom": {
+          "codigo": "BEMVINDO10",
+          "aplicado": true,
+          "mensagem": "Cupom aplicado: 10% de desconto nos produtos."
+        }
+      }
+    }
+  }
+]

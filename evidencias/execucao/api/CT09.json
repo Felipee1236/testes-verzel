@@ -1,0 +1,137 @@
+[
+  {
+    "ct": "CT09",
+    "linha": "a",
+    "descricao": "calcular com 5 unidades",
+    "esperado": "200, subtotal 299.5",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:38.846Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P001",
+            "quantidade": 5
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 200,
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P001",
+            "nome": "Camiseta Essencial",
+            "precoUnitario": 59.9,
+            "quantidade": 5,
+            "total": 299.5
+          }
+        ],
+        "subtotal": 299.5,
+        "desconto": 0,
+        "frete": 0,
+        "freteGratis": true,
+        "valorFaltanteFreteGratis": 0,
+        "total": 299.5,
+        "cupom": null
+      }
+    }
+  },
+  {
+    "ct": "CT09",
+    "linha": "b",
+    "descricao": "calcular com 6 unidades",
+    "esperado": "422 QUANTIDADE_MAXIMA_EXCEDIDA",
+    "resultado": "Falhou",
+    "executadoEm": "2026-10-09T22:39:38.885Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P001",
+            "quantidade": 6
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 200,
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P001",
+            "nome": "Camiseta Essencial",
+            "precoUnitario": 59.9,
+            "quantidade": 6,
+            "total": 359.4
+          }
+        ],
+        "subtotal": 359.4,
+        "desconto": 0,
+        "frete": 0,
+        "freteGratis": true,
+        "valorFaltanteFreteGratis": 0,
+        "total": 359.4,
+        "cupom": null
+      }
+    }
+  },
+  {
+    "ct": "CT09",
+    "linha": "c",
+    "descricao": "pedido com 6 unidades",
+    "esperado": "422 QUANTIDADE_MAXIMA_EXCEDIDA e nenhum pedido gerado",
+    "resultado": "Falhou",
+    "executadoEm": "2026-10-09T22:39:38.925Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+      "corpo": {
+        "cliente": {
+          "nome": "Maria Silva",
+          "email": "maria@exemplo.com",
+          "cep": "01310-100"
+        },
+        "itens": [
+          {
+            "produtoId": "P001",
+            "quantidade": 6
+          }
+        ]
+      }
+    },
+    "resposta": {
+      "status": 201,
+      "corpo": {
+        "numero": "VZ-526996",
+        "criadoEm": "2026-10-09T22:39:38.618Z",
+        "cliente": {
+          "nome": "Maria Silva",
+          "email": "maria@exemplo.com",
+          "cep": "01310100"
+        },
+        "itens": [
+          {
+            "produtoId": "P001",
+            "nome": "Camiseta Essencial",
+            "precoUnitario": 59.9,
+            "quantidade": 6,
+            "total": 359.4
+          }
+        ],
+        "subtotal": 359.4,
+        "desconto": 0,
+        "frete": 0,
+        "freteGratis": true,
+        "valorFaltanteFreteGratis": 0,
+        "total": 359.4,
+        "cupom": null
+      }
+    }
+  }
+]

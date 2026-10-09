@@ -1,0 +1,94 @@
+[
+  {
+    "ct": "CT14",
+    "linha": "a",
+    "descricao": "calcular com cupom XPTO",
+    "esperado": "200; desconto 0, total 119.9, aplicado false, \"Cupom inválido.\"",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.036Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P005",
+            "quantidade": 1
+          }
+        ],
+        "cupom": "XPTO"
+      }
+    },
+    "resposta": {
+      "status": 200,
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P005",
+            "nome": "Mochila Urbana 20L",
+            "precoUnitario": 100,
+            "quantidade": 1,
+            "total": 100
+          }
+        ],
+        "subtotal": 100,
+        "desconto": 0,
+        "frete": 19.9,
+        "freteGratis": false,
+        "valorFaltanteFreteGratis": 100,
+        "total": 119.9,
+        "cupom": {
+          "codigo": "XPTO",
+          "aplicado": false,
+          "mensagem": "Cupom inválido."
+        }
+      }
+    }
+  },
+  {
+    "ct": "CT14",
+    "linha": "b",
+    "descricao": "calcular com cupom VERAO2026",
+    "esperado": "200; desconto 0, total 119.9, aplicado false, \"Cupom expirado.\"",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.072Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/carrinho/calcular",
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P005",
+            "quantidade": 1
+          }
+        ],
+        "cupom": "VERAO2026"
+      }
+    },
+    "resposta": {
+      "status": 200,
+      "corpo": {
+        "itens": [
+          {
+            "produtoId": "P005",
+            "nome": "Mochila Urbana 20L",
+            "precoUnitario": 100,
+            "quantidade": 1,
+            "total": 100
+          }
+        ],
+        "subtotal": 100,
+        "desconto": 0,
+        "frete": 19.9,
+        "freteGratis": false,
+        "valorFaltanteFreteGratis": 100,
+        "total": 119.9,
+        "cupom": {
+          "codigo": "VERAO2026",
+          "aplicado": false,
+          "mensagem": "Cupom expirado."
+        }
+      }
+    }
+  }
+]

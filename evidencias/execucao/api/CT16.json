@@ -1,0 +1,60 @@
+[
+  {
+    "ct": "CT16",
+    "linha": "-",
+    "descricao": "pedido válido com cupom \" bemvindo10 \"",
+    "esperado": "201; numero VZ-000000; CEP 01310100; subtotal 100, desconto 10, frete 19.9, total 109.9",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.158Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+      "corpo": {
+        "cliente": {
+          "nome": "Maria Silva",
+          "email": "maria@exemplo.com",
+          "cep": "01310-100"
+        },
+        "itens": [
+          {
+            "produtoId": "P005",
+            "quantidade": 1
+          }
+        ],
+        "cupom": " bemvindo10 "
+      }
+    },
+    "resposta": {
+      "status": 201,
+      "corpo": {
+        "numero": "VZ-794399",
+        "criadoEm": "2026-10-09T22:39:38.850Z",
+        "cliente": {
+          "nome": "Maria Silva",
+          "email": "maria@exemplo.com",
+          "cep": "01310100"
+        },
+        "itens": [
+          {
+            "produtoId": "P005",
+            "nome": "Mochila Urbana 20L",
+            "precoUnitario": 100,
+            "quantidade": 1,
+            "total": 100
+          }
+        ],
+        "subtotal": 100,
+        "desconto": 10,
+        "frete": 19.9,
+        "freteGratis": false,
+        "valorFaltanteFreteGratis": 100,
+        "total": 109.9,
+        "cupom": {
+          "codigo": "BEMVINDO10",
+          "aplicado": true,
+          "mensagem": "Cupom aplicado: 10% de desconto nos produtos."
+        }
+      }
+    }
+  }
+]

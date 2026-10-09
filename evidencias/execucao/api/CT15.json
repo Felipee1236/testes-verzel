@@ -1,0 +1,74 @@
+[
+  {
+    "ct": "CT15",
+    "linha": "a",
+    "descricao": "pedido com cupom XPTO",
+    "esperado": "422 CUPOM_INVALIDO, campo cupom",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.103Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+      "corpo": {
+        "cliente": {
+          "nome": "Maria Silva",
+          "email": "maria@exemplo.com",
+          "cep": "01310-100"
+        },
+        "itens": [
+          {
+            "produtoId": "P005",
+            "quantidade": 1
+          }
+        ],
+        "cupom": "XPTO"
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "CUPOM_INVALIDO",
+          "mensagem": "Cupom inválido.",
+          "campo": "cupom"
+        }
+      }
+    }
+  },
+  {
+    "ct": "CT15",
+    "linha": "b",
+    "descricao": "pedido com cupom VERAO2026",
+    "esperado": "422 CUPOM_EXPIRADO, campo cupom",
+    "resultado": "Passou",
+    "executadoEm": "2026-10-09T22:39:39.131Z",
+    "requisicao": {
+      "metodo": "POST",
+      "url": "https://verzel-store.qa-test-verzel-store.workers.dev/api/pedidos",
+      "corpo": {
+        "cliente": {
+          "nome": "Maria Silva",
+          "email": "maria@exemplo.com",
+          "cep": "01310-100"
+        },
+        "itens": [
+          {
+            "produtoId": "P005",
+            "quantidade": 1
+          }
+        ],
+        "cupom": "VERAO2026"
+      }
+    },
+    "resposta": {
+      "status": 422,
+      "corpo": {
+        "erro": {
+          "codigo": "CUPOM_EXPIRADO",
+          "mensagem": "Cupom expirado.",
+          "campo": "cupom"
+        }
+      }
+    }
+  }
+]
