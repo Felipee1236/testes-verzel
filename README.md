@@ -39,8 +39,8 @@ As interpretações de pontos ambíguos da documentação estão em [`cenarios/R
 ### Instalação
 
 ```bash
-git clone https://github.com/Felipee1236/teste-qa-verzel.git
-cd teste-qa-verzel
+git clone https://github.com/Felipee1236/testes-verzel.git
+cd testes-verzel
 npm install
 npx playwright install chromium
 ```
