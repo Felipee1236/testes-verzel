@@ -44,7 +44,7 @@ Funcionalidade: Regras de cálculo e contrato da API
   Cenário: Confirmar pedido válido pela API
     Quando envio POST "/api/pedidos" com um cliente válido, os itens P005 x1 e o cupom " bemvindo10 "
     Então o status da resposta deve ser 201
-    E o numero do pedido deve seguir o formato "VZ-" seguido de 6 dígitos
+    E o número do pedido deve seguir o formato "VZ-" seguido de 6 dígitos
     E o CEP do cliente deve voltar normalizado como "01310100"
     E a resposta deve ter subtotal 100, desconto 10, frete 19.9 e total 109.9
 
